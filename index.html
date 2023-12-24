@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+  <html lang='en' id="htmll">
+
+  <head >
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=na">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<title>Brandon's Random Quote Machine</title>
+    <script>
+      const QUOTEBANK = [
+    {  quote: "The pig was once a pig, until it was bacon",
+       author: "Brandon Craig"
+  }, {
+    quote: " Have A Golden Apple In Honor Of Steves Jobs.",
+    author: 'Minecraft'
+  },
+  { quote: "You shall not pass!",
+    author: "Gandalf The Grey"
+  },
+  { quote: "I don’t get payed enough for that",
+    author: "Cory the Stewart"
+  }
+
+];
+      window.onload = init;
+      function init() {
+   generateQuote()
+ };
+      function generateQuote() {
+      let quoteSize = QUOTEBANK.length;
+      let randomIndex = Math.floor(Math.random() * quoteSize);
+      let randomQuoteData = QUOTEBANK[randomIndex];
+
+      let twitterLink = "https://twitter.com/intent/tweet?hashtags=quotes&amp;related=freecodecamp&amp;text="
+      // Add the quote
+      let quoteInApiFormat = randomQuoteData.quote.replace(/ /g, "%20");
+      twitterLink += quoteInApiFormat
+
+      //Add the Author
+        let authorInApiFormat = randomQuoteData.author.replace(/ /g, "%20")
+      twitterLink += " - " +  authorInApiFormat
+
+
+        document.getElementById("tweet-quote").href = twitterLink;
+        document.getElementById("text").innerText = randomQuoteData.quote;
+        document.getElementById("author").innerText = randomQuoteData.author;
+      }
+    </script>
+  </head>
+
+  <body id="body">
+    <div class="container">
+
+      <div class="row py-5">
+      <div id="wrapper">
+      <div id="quote-box"  ><div class="card">
+        <div class="card-header text-center" > Brandon's Quote Machine
+        </div>
+        <div class="card-body" >
+          <h5 class="card-title">
+          <div id="text" class="text-center"</div></h5>
+          <p class="card-text text-center"  id="author" ></p>
+          <button id="new-quote " onClick="generateQuote();" class="btn btn-block  btn-primary">New Quote</button>
+          <a id="tweet-quote" target="_blank"  href="#" class="btn btn-block btn-outline-warning">Tweet Quote</a>
+
+      </div>
+      </div>
+    </div>
+   </div>
+    </div>
+      </div>
+    </div>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
+
+<style>
+
+
+#quote-box {
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  background: orange;
+
+
+};
+#container {
+ background-color: black,;
+
+};
+
+#htmll {
+  background: black;
+ };
+
+
+</style>
